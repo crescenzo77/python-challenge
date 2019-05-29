@@ -49,33 +49,33 @@ for file in datafile:
                 amt_most_loss = increased_value
                 date_most_loss = row[0]
 
-average_change = (round(total_change/tot_num_months))
+average_change = round(total_change/tot_num_months,2)
 
-   #text file save to
-    outputpath = os.path.join("Resources",file.split(".")[0] + "_Results.txt")
-    lines = []
-    resultsfile = open(outputpath, "w")
+#text file save to
+outputpath = os.path.join("Resources",file.split(".")[0] + "_Results.txt")
+lines = []
+resultsfile = open(outputpath, "w")
     
 
 
-    #text file structure from example
-    lines.append("Financial Analysis")
-    lines.append("--------------")
-    lines.append("Total Months : "+str(tot_num_months))
-    lines.append("Total : " + str(net_tot_profit))
-    lines.append("Average Chang : "+str(average_change))
-    lines.append("Greatest Increase in Profits : "+date_most_profit + " $" + str(amt_most_profit) +")")
-    lines.append("Greatest Decrease in Profits : "+date_most_loss + " $" + str(amt_most_loss) +")")
+#text file structure from example
+lines.append("Financial Analysis")
+lines.append("--------------")
+lines.append("Total Months : "+str(tot_num_months))
+lines.append("Total : " + str(net_tot_profit))
+lines.append("Average Chang : "+str(average_change))
+lines.append("Greatest Increase in Profits : "+date_most_profit + " $" + str(amt_most_profit) +")")
+lines.append("Greatest Decrease in Profits : "+date_most_loss + " $" + str(amt_most_loss) +")")
 
 
-     #finish the output
-    for line in lines:
+#finish the output
+for line in lines:
 
-        print(line)
+    print(line)
 
-        print(line,file=resultsfile)
+    print(line,file=resultsfile)
         
-    print()
+print()
     
-    #end writing to file
-    resultsfile.close()
+#end writing to file
+resultsfile.close()

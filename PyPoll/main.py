@@ -45,7 +45,7 @@ max_index = 0
 
 #calculations for the winner and percentages
 for count in range(len(candidates)):
-    vote_percentage = (round(vote_counts[count]/num_votes*100))
+    vote_percentage = round(vote_counts[count]/num_votes*100,5)
     percentages.append(vote_percentage)
     if vote_counts[count] > max_votes:
         max_votes = vote_counts[count]
