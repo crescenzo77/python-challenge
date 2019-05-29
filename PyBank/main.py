@@ -1,8 +1,10 @@
+#bank
+
 import os
 import csv
 
 
-#variables to calculate
+#variables to calculate and zero down
 tot_num_months = 0
 net_tot_profit = 0
 date_most_profit = "date_1"
@@ -47,8 +49,7 @@ for file in datafile:
                 amt_most_loss = increased_value
                 date_most_loss = row[0]
 
-
-    average_change = (round(total_change/tot_num_months))
+average_change = (round(total_change/tot_num_months))
 
    #text file save to
     outputpath = os.path.join("Resources",file.split(".")[0] + "_Results.txt")
