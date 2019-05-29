@@ -27,7 +27,7 @@ for file in datafile:
         csvreader = csv.reader(csvfile, delimiter=',')
 
 
-        #variables zeroed out again? I still don't understand why this has to happen to make it work...
+        #some of the variables zeroed out again? I still don't understand why this has to happen to make it work...
         last_income = 0
         tot_num_months = 0
         net_tot_profit = 0
@@ -36,19 +36,28 @@ for file in datafile:
 
         #calculate variables
         for row in csvreader:
+            #rolling total of profits
             net_tot_profit = net_tot_profit + int(row[1])
+            #rolling total of months
             tot_num_months = tot_num_months +1
+
             increased_value = int(row[1]) - last_income
             total_change = total_change + increased_value
             last_income =  int(row[1])
+            #if the increased value is greater than the greatest increase in profits....
             if(increased_value > amt_most_profit):
+                #then the found profit value being greater than the greatest increase is recorded as the amt_most_profit
                 amt_most_profit = increased_value
                 date_most_profit = row[0]
             
+            #if the increased value is less than the biggest drop in profits.....
             if(increased_value < amt_most_loss):
+                #then the found profit value (in losses)
+                # being less than the last biggest drop in profits is recorded as the amt_most_loss
                 amt_most_loss = increased_value
                 date_most_loss = row[0]
 
+#calculate the average change that occured
 average_change = round(total_change/tot_num_months,2)
 
 #text file save to
